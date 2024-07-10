@@ -1,0 +1,61 @@
+[
+  {
+    "Platform": "Genoa",
+    "Include": []
+  },
+  {
+    "Component": "xSIM",
+    "Description": "",
+    "Files": []
+  },
+  {
+    "Component": "APOB",
+    "Description": "",
+    "Files": []
+  },
+  {
+    "Component": "CCX",
+    "Description": "",
+    "Files": []
+  },
+  {
+    "Component": "DF",
+    "Description": "",
+    "Files": []
+  },
+  {
+    "Component": "FCH",
+    "Description": "",
+    "Files": []
+  },
+  {
+    "Component": "MEM",
+    "Description": "Coverage for MEM IP",
+    "Files": []
+  },
+  {
+    "Component": "MPIO",
+    "Description": "",
+    "Files": []
+  },
+  {
+    "Component": "NBIO",
+    "Description": "",
+    "Files": []
+  },
+  {
+    "Component": "RAS",
+    "Description": "",
+    "Files": []
+  },
+  {
+    "Component": "RcMgr",
+    "Description": "",
+    "Files": []
+  },
+  {
+    "Component": "SMU",
+    "Description": "",
+    "Files": []
+  }
+]

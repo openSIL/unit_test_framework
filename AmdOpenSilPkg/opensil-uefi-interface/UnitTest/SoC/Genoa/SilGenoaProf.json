@@ -1,0 +1,29 @@
+[
+  {
+    "Include": []
+  },
+  {
+    "Component": "NBIO",
+    "Description": "Profile for xUSL NBIO components",
+    "Tests" : []
+  },
+  {
+    "Component": "GFX",
+    "Description": "Profile for xUSL GFX components",
+    "Tests" : []
+  },
+  {
+    "Component": "MPIO",
+    "Tests" : []
+  },
+  {
+    "Component": "MEM",
+    "Description": "Profile for MEM component in xPRF services",
+    "Tests" : []
+  },
+  {
+    "Component": "APOB",
+    "Description": "Profile for APOB component",
+    "Tests" : []
+  }
+]

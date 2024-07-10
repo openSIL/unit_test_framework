@@ -1,0 +1,8 @@
+[
+  {
+    "Platform": "Genoa",
+    "Include": [
+      "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\SoC\\Xmp\\HelloWorldProfile.json"
+    ]
+  }
+]

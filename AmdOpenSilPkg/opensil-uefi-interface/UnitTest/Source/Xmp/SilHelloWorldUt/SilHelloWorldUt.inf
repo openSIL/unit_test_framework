@@ -1,0 +1,31 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  SilHelloWorldUt.inf
+# @brief
+#
+
+
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = SilHelloWorldUt
+  FILE_GUID      = 1E8DB55A-26CF-48f6-9C71-334BC86EFE16
+  MODULE_TYPE    = HOST_APPLICATION
+  VERSION_STRING = 1.0
+
+[Sources]
+  SilHelloWorldUt.c
+  SilHelloWorldUt.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdCommonPkg/Test/UnitTest/AgesaModuleUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  UtBaseLib
+  UtIoFakeLib
+  UtSilInitLib
+  UtMmioFakeLib

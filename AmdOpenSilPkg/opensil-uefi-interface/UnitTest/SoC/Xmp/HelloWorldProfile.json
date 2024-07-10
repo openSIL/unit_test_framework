@@ -1,0 +1,17 @@
+[
+  {
+    "Include": []
+  },
+  {
+    "Component": "Examples",
+    "Tests" : [
+      {
+        "Name"       : "SilHelloWorldUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\Xmp\\SilHelloWorldUt\\SilHelloWorldUt.json",
+        "Iterations" : ["Default"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\Xmp\\SilHelloWorldUt\\SilHelloWorldUt.c",
+        "Timeout"    : 15
+      }
+    ]
+  }
+]

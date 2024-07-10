@@ -1,0 +1,22 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  UtMmioFakeLib.inf
+# @brief
+#
+
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = UtMmioFakeLib
+  FILE_GUID                      = 9efa356e-89b1-41a8-b853-4f0e12932a8b
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = UtMmioFakeLib
+
+[Sources]
+  UtMmioFakeLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec

@@ -1,0 +1,18 @@
+## @file
+# This Package provides all definitions (including functions, MACROs, structures library classes, and PCDs) and libraries instances, which are used
+# to support AMD OpenSIL host-based unit testing.
+#
+# Copyright (c) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+##
+
+[Defines]
+  DEC_SPECIFICATION = 0x00010005
+  PACKAGE_NAME      = AmdOpenSilHostUnitTest
+  PACKAGE_GUID      = 936dc9ac-61af-4694-b779-d1e4fc0cf80e
+  PACKAGE_VERSION   = 1.00
+
+[Includes]
+  Include
+  Include/CommonLib
