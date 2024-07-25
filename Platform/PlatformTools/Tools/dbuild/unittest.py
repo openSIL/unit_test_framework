@@ -1,3 +1,6 @@
+#!/usr/bin/env -S python #
+# SPDX-License-Identifier: MIT
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
 """
 *******************************************************************************
  Copyright (C) 2021-2024 Advanced Micro Devices, Inc. All rights reserved.

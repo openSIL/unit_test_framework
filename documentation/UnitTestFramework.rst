@@ -1,6 +1,24 @@
+..
+  SPDX-License-Identifier: CC-BY-4.0
+
 ===========================
 openSIL Unit Test Framework
 ===========================
+
++-------------------------------------------------------------------------------+
+| Copyright 2024 Advanced Micro Devices, Inc. All rights reserved.              |
++===============================================================================+
+| Documentation is licensed under CC-BY-4.0                                     |
+| https://creativecommons.org/licenses/by/4.0/                                  |
++-------------------------------------------------------------------------------+
+| **Trademarks**                                                                |
++-------------------------------------------------------------------------------+
+| AMD, the AMD Arrow logo, AMD AllDay, AMD Virtualization, AMD-V, PowerPlay,    |
+| Vari-Bright, AGESA, OpenSIL, and combinations thereof are trademarks of       |
+| Advanced Micro Devices, Inc. Other product names used in this publication are |
+| for identification purposes only and may be trademarks of their respective    |
+| companies.                                                                    |
++-------------------------------------------------------------------------------+
 
 Draft Version
 -------------
