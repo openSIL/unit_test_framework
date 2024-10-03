@@ -14,7 +14,7 @@
 #define AMD_UNIT_TEST_MAX_FILENAME_LENGTH           64
 #define AMD_UNIT_TEST_MAX_PATH_LENGTH               256
 #define AMD_UNIT_TEST_MAX_STRING_LENGTH             120
-#define AMD_UNIT_TEST_MAX_CONFIG_FILE_LENGTH        2096
+#define AMD_UNIT_TEST_MAX_CONFIG_FILE_LENGTH        (1024*128)
 
 #ifdef __cplusplus
 extern "C" {

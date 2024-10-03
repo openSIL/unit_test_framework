@@ -4,6 +4,7 @@
 """
 *******************************************************************************
  Copyright (C) 2021-2024 Advanced Micro Devices, Inc. All rights reserved.
+
 *******************************************************************************
 """
 import arguments
@@ -11,6 +12,9 @@ import os
 import subprocess
 import sys
 import argparse
+import shutil
+import logging
+from glob import glob
 from platform_environment import is_edkii_build
 from clean_paths import clean_paths
 from buildtools import verify_tools
@@ -256,4 +260,45 @@ def unit_test():
         return return_code
 
     # Build unit tests
-    return execute_unit_test_build(unit_test_env)
+    return_code = execute_unit_test_build(unit_test_env)
+
+    if return_code != 0:
+        return return_code
+
+    build_output = os.path.join(
+        arguments.args.build_output,
+        "HostTest",
+        "NOOPT_VS2019",
+        "IA32"
+    )
+
+    agesa_source_path = os.path.join(
+        arguments.args.workspace,
+        "Platform",
+        "AmdCommonPkg",
+        "Test",
+        "UnitTest",
+        "Source"
+    )
+
+    opensil_source_path = os.path.join(
+        arguments.args.workspace,
+        "AmdOpenSilPkg",
+        "opensil-uefi-interface",
+        "UnitTest",
+        "Source"
+    )
+
+    agesa_search_path = agesa_source_path + "/**/*.json"
+    opensil_search_path = opensil_source_path + "/**/*.json"
+    if os.name.lower() == "nt":
+        agesa_search_path = agesa_search_path.replace("/", "\\")
+        opensil_search_path = opensil_search_path.replace("/", "\\")
+
+    for filename in glob(agesa_search_path, recursive=True):
+        print("Copying {} to {}.".format(filename, build_output))
+        shutil.copy(filename, build_output)
+
+    for filename in glob(opensil_search_path, recursive=True):
+        print("Copying {} to {}.".format(filename, build_output))
+        shutil.copy(filename, build_output)

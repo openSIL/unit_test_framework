@@ -5,6 +5,7 @@ import os
 import sys
 import json
 import glob
+import time
 import shutil
 import logging
 import argparse
@@ -45,21 +46,22 @@ class Component():
   """
   """
   def __init__ (self):
-    self.name   = None
-    self.files  = []
+    self.name       = None
+    self.cmn_files  = []
+    self.soc_files  = []
 
   def __eq__(self, other):
     return self.name == other.name
 
-def ut_get_platform(src_file):
+def ut_get_soc(src_file):
   """
   """
   with open(src_file) as fp:
     items = json.load(fp)
-  if "Platform" not in items[0]:
-    logging.error("Unknown Src File 'Platform'. Top Src file must indicate the 'Platform' field.")
+  if "SoC" not in items[0]:
+    logging.error("Unknown Src File 'SoC'. Top Src file must indicate the 'SoC' field.")
     sys.exit(1)
-  return items[0]["Platform"]
+  return items[0]["SoC"]
 
 def ut_get_components(src_file):
   components      = []
@@ -87,14 +89,18 @@ def ut_get_all_components(top_src_file):
     for _component in _components:
       component = Component()
       component.name = _component["Component"]
-      files = []
+      cmn_files = []
+      soc_files = []
       if 'CommonFiles' in _component:
-        files += _component["CommonFiles"]
+        cmn_files += _component["CommonFiles"]
       if 'PlatformFiles' in _component:
-        files += _component["PlatformFiles"]
+        soc_files += _component["PlatformFiles"]
+      if 'SoCFiles' in _component:
+        soc_files += _component["SoCFiles"]
       if 'Files' in _component:
-        files += _component["Files"]
-      for file in files:
+        soc_files += _component["Files"]
+
+      for file in cmn_files:
         file_abs_path = os.path.join(repo_path, file["Name"])
         if not os.path.isfile (file_abs_path):
           logging.warning("Source file path {} does not exists. File skipped.".format(file_abs_path))
@@ -102,11 +108,22 @@ def ut_get_all_components(top_src_file):
         src_file = SrcFile()
         src_file.path = file["Name"]
         src_file.name = os.path.basename(file["Name"]).replace(".c", "").replace(".C", "")
-        component.files.append(src_file)
+        component.cmn_files.append(src_file)
+
+      for file in soc_files:
+        file_abs_path = os.path.join(repo_path, file["Name"])
+        if not os.path.isfile (file_abs_path):
+          logging.warning("Source file path {} does not exists. File skipped.".format(file_abs_path))
+          continue
+        src_file = SrcFile()
+        src_file.path = file["Name"]
+        src_file.name = os.path.basename(file["Name"]).replace(".c", "").replace(".C", "")
+        component.soc_files.append(src_file)
 
       if component in all_components:
         existing_component = all_components[all_components.index(component)] # Get the existing component
-        existing_component.files.extend(component.files) # Add the files to the existing component
+        existing_component.cmn_files.extend(component.cmn_files) # Add the files to the existing component
+        existing_component.soc_files.extend(component.soc_files) # Add the files to the existing component
       else:
         all_components.append(component)
 
@@ -249,8 +266,7 @@ def ut_create_file_report (configs, coverage_infos, component_outpath, src_file)
 
   src_file.coverage = stdout_str[index0+13:index0+13+index1]
 
-
-def ut_create_component_report(configs, coverage_infos, components):
+def ut_update_lcov_reports(configs, coverage_infos, components):
   """
   """
   out_path = configs["OutPath"]
@@ -258,8 +274,31 @@ def ut_create_component_report(configs, coverage_infos, components):
     component_outpath = os.path.join(out_path, component.name)
     if not os.path.isdir(component_outpath):
       os.mkdir(component_outpath)
-    for src_file in component.files:
+    src_files = component.cmn_files + component.soc_files
+    for src_file in src_files:
       ut_create_file_report (configs, coverage_infos, component_outpath, src_file)
+
+def ut_create_summary_report(configs, test_info, components):
+  """
+  """
+  summary = {}
+  summary["AgesaGitHash"] = test_info["AgesaGitHash"]
+  summary["OpenSilGitHash"] = test_info["OpenSilGitHash"]
+  summary["SummaryGeneratedOn"] = str(time.time())
+
+  for component in components:
+    total_num_of_code_lines = 0
+    total_num_of_code_lines_covered = 0
+    src_files = component.cmn_files + component.soc_files
+    for src_file in src_files:
+      total_num_of_code_lines += int(src_file.code_cnt)
+      if (src_file.coverage != 0):
+        total_num_of_code_lines_covered += (int(src_file.code_cnt) * float(src_file.coverage))/100
+    percentage = "{:.2f}".format((100 * total_num_of_code_lines_covered)/total_num_of_code_lines)
+    summary[component.name] = percentage
+  _file = os.path.join(configs["OutPath"], 'summary.json')
+  with open(_file, 'w') as fp:
+    fp.write(json.dumps(summary, indent = 2))
 
 def ut_get_test_info(configs):
   """
@@ -357,8 +396,8 @@ if __name__ == "__main__":
   # Retrieve test info
   test_info = ut_get_test_info(configs)
 
-  # Get unit test platform
-  platform = ut_get_platform(configs["SrcFileList"])
+  # Get unit test soc
+  soc = ut_get_soc(configs["SrcFileList"])
 
   # Get all src components/files
   components = ut_get_all_components(configs["SrcFileList"])
@@ -367,8 +406,11 @@ if __name__ == "__main__":
   coverage_infos = ut_collect_coverage_infos(configs)
 
   #
-  ut_create_component_report(configs, coverage_infos, components)
+  ut_update_lcov_reports(configs, coverage_infos, components)
+
+  #
+  ut_create_summary_report(configs, test_info, components)
 
   report_page = os.path.join(configs["OutPath"], 'index.html')
   with open(report_page, 'w') as fp:
-    fp.write(report_template.render(configs = configs, test_info = test_info, platform = platform, components = components))
+    fp.write(report_template.render(configs = configs, test_info = test_info, soc = soc, components = components))

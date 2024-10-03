@@ -1,8 +1,9 @@
 [
   {
-    "Platform": "Genoa",
+    "SoC": "Genoa",
     "Include": [
-      "Platform\\AmdCommonPkg\\Test\\UnitTest\\SoC\\Common\\FchCmnSrcFiles.json"
+      "Platform\\AmdCommonPkg\\Test\\UnitTest\\SoC\\Common\\FchCmnSrcFiles.json",
+      "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\SoC\\Genoa\\SilGenoaFiles.json"
     ]
   },
   {

@@ -16,7 +16,13 @@
 
 #define LOG_VERSION "0.1.0"
 
+typedef enum {
+  STRING_FMT_ANSI_C_STD,
+  STRING_FMT_EDK2_PRINT_LIB,
+} STRING_FMT_STANDARD;
+
 typedef struct {
+  STRING_FMT_STANDARD std;
   va_list ap;
   const char *fmt;
   const char *file;

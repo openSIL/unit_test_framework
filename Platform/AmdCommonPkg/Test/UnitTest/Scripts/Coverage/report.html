@@ -30,8 +30,8 @@
         </thead>
         <tbody>
           <tr>
-            <td width="25%">Target Platform</td>
-            <td width="75%" style="text-align: center">${platform}</td>
+            <td width="25%">SOC</td>
+            <td width="75%" style="text-align: center">${soc}</td>
           </tr>
           <tr>
             <td width="25%">Test Completion Time</td>
@@ -60,26 +60,39 @@
       <table border="1" cellspacing="0" width="100%">
         <thead>
           <tr bgcolor="#339FFF">
-            <th width="34%">Name</th>
-            <th width="33%">Total Code Lines</th>
-            <th width="33%">Code Coverage</th>
+            <th width="20%">Name</th>
+            <th width="20%">Code Lines</th>
+            <th width="30%">Common Code Share</th>
+            <th width="30%">Code Coverage</th>
           </tr>
         </thead>
         <tbody>
           % for component in components:
           <%
-          total_num_of_code_lines = 0
-          total_num_of_code_lines_covered = 0
           overall_coverage_percentage = 0
-          for src_file in component.files:
-            total_num_of_code_lines += int(src_file.code_cnt)
+          total_num_of_common_code_lines = 0
+          total_num_of_common_code_lines_covered = 0
+          total_num_of_soc_code_lines = 0
+          total_num_of_soc_code_lines_covered = 0
+          for src_file in component.cmn_files:
+            total_num_of_common_code_lines += int(src_file.code_cnt)
             if (src_file.coverage != 0):
-              total_num_of_code_lines_covered += (int(src_file.code_cnt) * float(src_file.coverage))/100
+              total_num_of_common_code_lines_covered += (int(src_file.code_cnt) * float(src_file.coverage))/100
+          for src_file in component.soc_files:
+            total_num_of_soc_code_lines += int(src_file.code_cnt)
+            if (src_file.coverage != 0):
+              total_num_of_soc_code_lines_covered += (int(src_file.code_cnt) * float(src_file.coverage))/100
+
+          total_num_of_code_lines = total_num_of_common_code_lines + total_num_of_soc_code_lines
+          total_num_of_code_lines_covered = total_num_of_common_code_lines_covered + total_num_of_soc_code_lines_covered
+
+          common_code_percentage = "{:.2f}".format((100 * total_num_of_common_code_lines)/total_num_of_code_lines)
           overall_coverage_percentage = "{:.2f}".format((100 * total_num_of_code_lines_covered)/total_num_of_code_lines)
           %>
           <tr>
             <td>${component.name}</td>
             <td align="center">${total_num_of_code_lines}</td>
+            <td align="center">${common_code_percentage}%</td>
             <td align="center">${overall_coverage_percentage}%</td>
           </tr>
           % endfor
@@ -101,19 +114,36 @@
           <tr bgcolor="#339FFF" align="center" border="0">
             <td width="10%"><b>File Name</b></td>
             <td width="10%"><b>Code Line Count</b></td>
-            <td width="10%"><b>Documentation Line Count</b></td>
+            <td width="10%"><b>Doc Line Count</b></td>
             <td width="10%"><b>Empty Line Count</b></td>
-            <td width="10%"><b>String Line Count</b></td>
-            <td width="10%"><b>File Coverage (%)</b></td>
+            <td width="10%"><b>Coverage Percent</b></td>
             <td width="10%"><b>Coverage Report</b></td>
           </tr>
-          % for src_file in component.files:
+          % for src_file in component.cmn_files:
           <tr align="center">
             <td align="left">${src_file.name}.c</td>
             <td>${src_file.code_cnt}</td>
             <td>${src_file.doc_cnt}</td>
             <td>${src_file.empty_cnt}</td>
-            <td>${src_file.string_cnt}</td>
+            <td>${src_file.coverage}</td>
+            <%
+            coverage_file = './{}/{}/index.html'.format(component.name, src_file.name)
+            if not os.path.isfile (os.path.join(configs["OutPath"], coverage_file)):
+              coverage_file = "NA"
+            %>
+            % if coverage_file == "NA":
+            <td align="center">NA</td>
+            % else:
+            <td align="center"><a onclick="openTestDetailsWindow('${coverage_file}')" style="cursor:hand;cursor:pointer" href="JavaScript:void(0)">Link</a></td>
+            % endif
+          </tr>
+          % endfor
+          % for src_file in component.soc_files:
+          <tr bgcolor="#ECECEC" align="center">
+            <td align="left">${src_file.name}.c</td>
+            <td>${src_file.code_cnt}</td>
+            <td>${src_file.doc_cnt}</td>
+            <td>${src_file.empty_cnt}</td>
             <td>${src_file.coverage}</td>
             <%
             coverage_file = './{}/{}/index.html'.format(component.name, src_file.name)

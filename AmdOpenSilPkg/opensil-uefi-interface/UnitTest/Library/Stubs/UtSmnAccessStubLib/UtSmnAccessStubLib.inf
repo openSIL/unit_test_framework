@@ -1,0 +1,23 @@
+# Copyright (C) 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  UtSmnAccessStubLib.inf
+# @brief
+#
+
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = UtSmnAccessStubLib
+  FILE_GUID                      = 7A7C8285-B179-4891-9A8E-6F7ABB187136
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = UtSmnAccessStubLib
+
+[Sources]
+  UtSmnAccessStubLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec

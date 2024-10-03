@@ -1,0 +1,12 @@
+[
+  {
+    "Include": []
+  },
+  {
+    "Component": "FCH",
+    "Description": "",
+    "CommonFiles": [
+      {"Name": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\FCH\\Common\\FchCore\\FchAb\\FchAb.c"}
+    ]
+  }
+]

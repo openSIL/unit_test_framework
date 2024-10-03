@@ -1,0 +1,24 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  UtPciFakeLib.inf
+# @brief
+#
+
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = UtPciFakeLib
+  FILE_GUID                      = b652cac9-8f97-4ab5-b82d-08c48165db2f
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = UtPciFakeLib
+
+[Sources]
+  UtPciFakeLib.c
+  UtPciExpressFakeLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec

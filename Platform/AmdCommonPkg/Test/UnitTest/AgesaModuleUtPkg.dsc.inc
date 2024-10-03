@@ -18,3 +18,6 @@
   MSFT:*_*_*_CC_FLAGS  = -D AMD_UNIT_TEST
   GCC:*_*_*_CC_FLAGS   = -D AMD_UNIT_TEST
   XCODE:*_*_*_CC_FLAGS = -D AMD_UNIT_TEST
+
+[PcdsFixedAtBuild]
+  gEfiMdePkgTokenSpaceGuid.PcdDebugPropertyMask|0x16

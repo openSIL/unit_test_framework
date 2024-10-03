@@ -11,8 +11,18 @@
 
 [LibraryClasses.common.HOST_APPLICATION]
   UtIoFakeLib|$(OPENSIL_UTPATH)/Fakes/UtIoFakeLib/UtIoFakeLib.inf
+  UtIoMockLib|$(OPENSIL_UTPATH)/Mocks/UtIoMockLib/UtIoMockLib.inf
+  UtIoStubLib|$(OPENSIL_UTPATH)/Stubs/UtIoStubLib/UtIoStubLib.inf
+  UtPciFakeLib|$(OPENSIL_UTPATH)/Fakes/UtPciFakeLib/UtPciFakeLib.inf
+  UtPciStubLib|$(OPENSIL_UTPATH)/Stubs/UtPciStubLib/UtPciStubLib.inf
   UtSilInitLib|$(OPENSIL_UTPATH)/Fakes/UtSilInitLib/UtSilInitLib.inf
   UtMmioFakeLib|$(OPENSIL_UTPATH)/Fakes/UtMmioFakeLib/UtMmioFakeLib.inf
+  UtMmioMockLib|$(OPENSIL_UTPATH)/Mocks/UtMmioMockLib/UtMmioMockLib.inf
+  UtMmioStubLib|$(OPENSIL_UTPATH)/Stubs/UtMmioStubLib/UtMmioStubLib.inf
+  UtxSIMFakeLib|$(OPENSIL_UTPATH)/Fakes/UtxSIMFakeLib/UtxSIMFakeLib.inf
+  UtxSIMMockLib|$(OPENSIL_UTPATH)/Mocks/UtxSIMMockLib/UtxSIMMockLib.inf
+  UtSilServicesMockLib|$(OPENSIL_UTPATH)/Mocks/UtSilServicesMockLib/UtSilServicesMockLib.inf
+  UtSmnAccessStubLib|$(OPENSIL_UTPATH)/Stubs/UtSmnAccessStubLib/UtSmnAccessStubLib.inf
 
 [BuildOptions]
   GCC:*_*_*_CC_FLAGS     = -D UNIT_TEST_RUN

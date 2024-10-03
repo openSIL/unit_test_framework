@@ -22,9 +22,11 @@
 /* Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved. */
 // SPDX-License-Identifier: MIT
 
+#include <Library/PrintLib.h>
 #include "Log.h"
 
 #define MAX_CALLBACKS 32
+#define MAX_LOG_MESSAGE_LENGTH  0x100
 
 typedef struct {
   log_LogFn fn;
@@ -51,31 +53,49 @@ static const char *level_colors[] = {
 };
 #endif
 
+static void print_message_with_format(log_Event *event) {
+  switch (event->std) {
+    case STRING_FMT_EDK2_PRINT_LIB:
+      char buffer[MAX_LOG_MESSAGE_LENGTH];
+      AsciiVSPrint(buffer, sizeof(buffer), event->fmt, event->ap);
+      fputs(buffer, event->udata);
+      break;
+
+    case STRING_FMT_ANSI_C_STD:
+    default:
+      vfprintf(event->udata, event->fmt, event->ap);
+      break;
+  }
+
+  if (event->line != 0) { // SA: Workaround for ids print
+    fprintf(event->udata, "\n");
+  }
+
+  fflush(event->udata);
+}
+
 
 static void stdout_callback(log_Event *ev) {
   char buf[16];
   buf[strftime(buf, sizeof(buf), "%H:%M:%S", ev->time)] = '\0';
-#ifdef LOG_USE_COLOR
-  fprintf(
-    ev->udata, "%s %s%-5s\x1b[0m \x1b[90m%s:%d:\x1b[0m ",
-    buf, level_colors[ev->level], level_strings[ev->level],
-    ev->file, ev->line);
-#else
   if (ev->line != 0) { // SA: Workaround for ids print
+#ifdef LOG_USE_COLOR
+    fprintf(
+      ev->udata, "%s %s%-5s\x1b[0m \x1b[90m%s:%d:\x1b[0m ",
+      buf, level_colors[ev->level], level_strings[ev->level],
+      ev->file, ev->line);
+#else
     fprintf(
       ev->udata, "%s %-5s %s:%d: ",
       buf, level_strings[ev->level], ev->file, ev->line);
+#endif
   } else {
     fprintf(
       ev->udata, "%s %-5s ",
       buf, level_strings[ev->level]);
   }
-#endif
-  vfprintf(ev->udata, ev->fmt, ev->ap);
-  if (ev->line != 0) { // SA: Workaround for ids print
-    fprintf(ev->udata, "\n");
-  }
-  fflush(ev->udata);
+
+  print_message_with_format(ev);
 }
 
 
@@ -91,11 +111,8 @@ static void file_callback(log_Event *ev) {
       ev->udata, "%s %-5s ",
       buf, level_strings[ev->level]);
   }
-  vfprintf(ev->udata, ev->fmt, ev->ap);
-  if (ev->line != 0) { // SA: Workaround for ids print
-    fprintf(ev->udata, "\n");
-  }
-  fflush(ev->udata);
+
+  print_message_with_format(ev);
 }
 
 
@@ -156,6 +173,7 @@ static void init_event(log_Event *ev, void *udata) {
 
 void log_log(int level, const char *file, int line, const char *fmt, ...) {
   log_Event ev = {
+    .std   = STRING_FMT_ANSI_C_STD,
     .fmt   = fmt,
     .file  = file,
     .line  = line,
@@ -190,6 +208,7 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
 
 void log_log_sil(int level, const char *file, int line, const char *fmt, va_list ap) {
   log_Event ev = {
+    .std   = STRING_FMT_EDK2_PRINT_LIB,
     .fmt   = fmt,
     .file  = file,
     .line  = line,

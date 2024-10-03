@@ -1,4 +1,4 @@
-# Copyright 2021-2023 Advanced Micro Devices, Inc. All rights reserved.
+# Copyright 2021-2024 Advanced Micro Devices, Inc. All rights reserved.
 # SPDX-License-Identifier: MIT
 
 import os
@@ -17,7 +17,7 @@ JSON_EXTENSION=".json"
 BINARY_EXTENSION=".exe"
 DISPATCHER_INDEX_HTML="dispatcher.html"
 OUI="AmdOpenSilPkg/opensil-uefi-interface"
-OPENSIL="{}/openSIL".format(OUI)
+OPENSIL="{}/OpenSIL".format(OUI)
 
 script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
 
@@ -167,7 +167,7 @@ def ut_get_all_components(configs):
         ut = Ut()
         ut.name     = test["Name"]
         ut.bin_path = os.path.join(inpath, ut.name + BINARY_EXTENSION)
-        ut.cfg_path = os.path.join(repo_path, test["ConfigFile"])
+        ut.cfg_path = os.path.join(inpath, ut.name + JSON_EXTENSION)
         ut.out_path = os.path.join(outpath, ut.name)
         ut.timeout  = test["Timeout"]
         ut.target_file = test["Target"]

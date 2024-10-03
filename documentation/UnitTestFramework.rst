@@ -29,7 +29,7 @@ Draft Version
 The openSIL unit test (UT) framework is a wrapper around the open-source
 `CMocka <https://cmocka.org/>`_ library. The wrapper adds desired functionality
 that the standalone library does not provide like test configurations,
-unified tost logging, and status tracking.
+unified test logging, and status tracking.
 
 The openSIL unit test framework has the following goals:
 
@@ -66,18 +66,18 @@ UnitTest/Source/(Component Name)/(Sub-component name)/TestThisFeatureUt.c.
 The recommended naming convention is: **Test**\ ThisFeature\ **Ut**.c.
 
 ''''''''''''''''''''''''''''''
-Adding a new UTM on (PHX POC):
+Adding a new UTM on Genoa POC:
 ''''''''''''''''''''''''''''''
 
-1. Check out the repo (insert command)
+1. Check out the repo (See Section 4.1)
 
 2. (Optional) Duplicate UnitTest/Source/Examples/HelloWorldUt as a template for your new UTM
 
-3. Add your UTM .inf file to AmdOpenSilUtPkgPhx.dsc.in under AmdOpenSilPkg/opensil-uefi-interface/UnitTest
+3. Add your UTM .inf file to *workspace*\Platform\AmdCommonPkg\Test\UnitTest\AgesaModuleUtPkgGn.dsc
 
-4. Run ae.cmd 2M unit-test
+4. Run 'dbuild.cmd ut UnitTest\AgesaModuleUtPkgGn.dsc'
 
-5. Upon successful build, the unit test executables will be located under Build/AgesaModulePkg/HostTest/NOOPT_VS2019/IA32
+5. Upon successful build, the unit test executables will be located under Build\AmdCommonPkg\HostTest\NOOPT_VS2019\IA32
 
 '''''''''''''''''''''''
 Executing a single test
@@ -96,8 +96,8 @@ Example:
 
 .. code-block::
 
-    .\HelloWorldUt.exe -i Default -o C:/Users/Username/Desktop/Output
-    -c REPO_PATH/AGESA/AgesaModulePkg/Test/UnitTest/Source/Examples/HelloWorldUt/HelloWorldUt.json
+    .\HelloWorldUt.exe -i Default -o C:\Users\<Username>\Desktop\Output
+    -c *workspace*\Platform\AmdCommonPkg\Test\UnitTest\Source\Examples\HelloWorldUt\HelloWorldUt.json
 
 ``````````````````````````````````````
 2.2 openSIL unit test source structure
@@ -125,7 +125,7 @@ The main function
 Test function trio
 ''''''''''''''''''
 
-*UtTestRun* exceutes the "test function trio" consisting of TestPrerequisite, TestBody, and TestCleanUp.
+*UtTestRun* executes the "test function trio" consisting of TestPrerequisite, TestBody, and TestCleanUp.
 *UtTestRun* sets up the appropriate exception/signal handlers and other data structures prior to running
 each of these test functions. When the test is complete, it performs various checks to determine the
 outcome of the test.
@@ -417,20 +417,26 @@ for building the Genoa openSIL POC. You will require Python3.x and git installed
 
 - Cd into *workspace*
 
-- Clone the opensil-uefi-interface into *workspace*/AmdOpenSilPkg and checkout unit test branch
+- Clone the opensil-uefi-interface into *workspace*/AmdOpenSilPkg and checkout genoa_poc branch
 
   - (All one command) git clone --recurse-submodules
     https://github.com/openSIL/opensil-uefi-interface.git AmdOpenSilPkg/opensil-uefi-interface
 
   - cd AmdOpenSilPkg/opensil-uefi-interface
 
-  - git checkout unit_test_framework
+  - git checkout genoa_poc
 
   - cd ../.. (i.e., cd back out into *workspace*)
 
-- Clone AGCL-R into *workspace*
+- Clone AGCL-R into *workspace* and checkout genoa_poc branch
 
   - git clone https://github.com/openSIL/AGCL-R.git
+
+  - cd AGCL-R
+
+  - git checkout genoa_poc
+
+  - cd .. (i.e., cd back out into *workspace*)
 
 - Clone EDKII-Platform into platform and checkout unit test branch
 
@@ -438,7 +444,21 @@ for building the Genoa openSIL POC. You will require Python3.x and git installed
 
   - cd Platform
 
-  - git checkout unit_test_framework
+  - git checkout genoa_poc
+
+  - cd .. (i.e., cd back out into *workspace*)
+
+- Clone unit_test_framework into *workspace* and checkout genoa_poc branch
+
+  - git clone https://github.com/openSIL/unit_test_framework.git
+
+  - cd unit_test_framework
+
+  - git checkout genoa_poc
+
+  - Copy contents of *workspace*\unit_test_framework\AmdOpenSilPkg to *workspace*\AmdOpenSilPkg
+
+  - Copy contents of *workspace*\unit_test_framework\Platform to *workspace*\Platform
 
   - cd .. (i.e., cd back out into *workspace*)
 
@@ -450,7 +470,7 @@ for building the Genoa openSIL POC. You will require Python3.x and git installed
 
     git submodule update --init
 
-  - cd *workspace* (i.e., cd back out of the edk2 folder)
+  - cd .. (i.e., cd back out of the edk2 folder into *workspace*)
 
     git clone https://github.com/tianocore/edk2-platforms.git
 
@@ -460,7 +480,7 @@ for building the Genoa openSIL POC. You will require Python3.x and git installed
 
 - Clone amd_firmwares and move them into the needed location
 
-  - cd *workspace* (i.e., cd back out of the edk2-platforms folder)
+  - cd .. (i.e., cd back out of the edk2-platforms folder into *workspace*)
 
     git clone https://github.com/openSIL/amd_firmwares.git
 

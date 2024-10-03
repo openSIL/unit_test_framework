@@ -1,0 +1,96 @@
+[
+  {
+    "Include": []
+  },
+  {
+    "Component": "xSIM",
+    "Description": "",
+    "Tests" : []
+  },
+  {
+    "Component": "FCH",
+    "Description": "Profile for xUSL FCH components",
+    "Tests" : [
+      {
+        "Name"       : "FchInitResetAbUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\Fch\\FchAb\\FchInitResetAbUt\\FchInitResetAbUt.json",
+        "Iterations" : ["Default"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\FCH\\Common\\FchCore\\FchAb\\FchAb.c",
+        "Timeout"    : 15
+      },
+      {
+        "Name"       : "FchAbSetInputBlkUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\Fch\\FchAb\\FchAbSetInputBlkUt\\FchAbSetInputBlkUt.json",
+        "Iterations" : ["SilPass", "SilAborted"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\FCH\\Common\\FchCore\\FchAb\\FchAb.c",
+        "Timeout"    : 15
+      },
+      {
+        "Name"       : "FchInitEnvAbUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\Fch\\FchAb\\FchInitEnvAbUt\\FchInitEnvAbUt.json",
+        "Iterations" : ["FchAbInputBlkCleared", "FchAbInputBlkSet"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\FCH\\Common\\FchCore\\FchAb\\FchAb.c",
+        "Timeout"    : 15
+      }
+    ]
+  },
+  {
+    "Component": "xPRF",
+    "Description": "Profile for xPRF services",
+    "Tests" : []
+  },
+  {
+    "Component": "xPRFMEM",
+    "Description": "Profile for MEM component in xPRF services",
+    "Tests" : []
+  },
+  {
+    "Component": "xPrfRcMgr",
+    "Description": "Profile for RcMgr component in xPRF services",
+    "Tests" : []
+  },
+  {
+    "Component": "NBIO",
+    "Description": "Profile for xUSL NBIO components",
+    "Tests" : []
+  },
+  {
+    "Component": "GFX",
+    "Description": "Profile for xUSL GFX components",
+    "Tests" : []
+  },
+  {
+    "Component": "MPIO",
+    "Tests" : []
+  },
+  {
+    "Component": "RcMgr",
+    "Description": "Profile for xUSL RcMgr components",
+    "Tests" : []
+  },
+  {
+    "Component": "MEM",
+    "Description": "Profile for MEM component in xPRF services",
+    "Tests" : []
+  },
+  {
+    "Component": "APOB",
+    "Description": "Profile for APOB component",
+    "Tests" : []
+  },
+  {
+    "Component": "SMU",
+    "Description": "Profile for xUSL Smu components",
+    "Tests" : []
+  },
+  {
+    "Component": "CCX",
+    "Description": "Profile for xUSL CCX components",
+    "Tests" : []
+  },
+  {
+    "Component": "DF",
+    "Description": "Profile for xUSL DF components",
+    "Tests" : []
+  }
+]
