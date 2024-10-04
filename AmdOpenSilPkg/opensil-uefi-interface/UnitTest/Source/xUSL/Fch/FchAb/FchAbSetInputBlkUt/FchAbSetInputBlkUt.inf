@@ -20,6 +20,7 @@
 
 [Sources]
   FchAbSetInputBlkUt.c
+  ../../../../../../../../AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/FCH/Common/MultiFch/MultiFchInit.h
   ../../../../../../../../AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/FCH/Common/FchCore/FchAb/FchAb.c
 
 [Packages]
