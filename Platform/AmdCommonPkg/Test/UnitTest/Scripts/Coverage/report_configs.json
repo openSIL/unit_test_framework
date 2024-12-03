@@ -3,6 +3,6 @@
   "OutPath"               : "",
   "RepoPath"              : "",
   "DynamoRioPath"         : "",
-  "TestProfile"           : "",
+  "SrcFileList"           : "",
   "PerlPath"              : ""
 }
