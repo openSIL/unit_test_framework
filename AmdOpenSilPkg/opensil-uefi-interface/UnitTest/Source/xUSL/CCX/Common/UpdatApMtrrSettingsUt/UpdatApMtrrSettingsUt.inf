@@ -1,0 +1,36 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  UpdatApMtrrSettingsUt.inf
+# @brief
+#
+
+
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = UpdatApMtrrSettingsUt
+  FILE_GUID      = 55751e19-8a2b-458e-aed0-14b185126cd0
+  MODULE_TYPE    = HOST_APPLICATION
+  VERSION_STRING = 1.0
+
+[Sources]
+  UpdatApMtrrSettingsUt.c
+  ../../../../../../../../../workspace/AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/CCX/Common/CcxMiscInit.c
+  ../../../../../../../../../workspace/AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/CommonLib/CpuOps.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdCommonPkg/Test/UnitTest/AgesaModuleUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  UtBaseLib
+  UtIoStubLib
+  UtPciStubLib
+  UtMmioStubLib
+  UtxSIMMockLib
+  UtSmnAccessStubLib
+  UtSilInitLib
+  UtSilServicesMockLib

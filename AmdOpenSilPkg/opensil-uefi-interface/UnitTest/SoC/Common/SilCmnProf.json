@@ -86,7 +86,35 @@
   {
     "Component": "CCX",
     "Description": "Profile for xUSL CCX components",
-    "Tests" : []
+    "Tests" : [
+      {
+        "Name": "UpdatApMtrrSettingsUt",
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\CCX\\Common\\UpdatApMtrrSettingsUt\\UpdatApMtrrSettingsUt.json",
+        "Iterations": [
+          "AMD_AP_MTRR_FIX64k_00000",
+          "AMD_AP_MTRR_FIX16k_80000",
+          "AMD_AP_MTRR_FIX16k_A0000",
+          "AMD_AP_MTRR_FIX4k_C0000",
+          "AMD_AP_MTRR_FIX4k_C8000",
+          "AMD_AP_MTRR_FIX4k_D0000",
+          "AMD_AP_MTRR_FIX4k_D8000",
+          "AMD_AP_MTRR_FIX4k_E0000",
+          "AMD_AP_MTRR_FIX4k_E8000",
+          "AMD_AP_MTRR_FIX4k_F0000",
+          "AMD_AP_MTRR_FIX4k_F8000",
+          "InvalidAddress"
+        ],
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c",
+        "Timeout": 15
+      },
+      {
+        "Name": "CcxEnableSmeeUt",
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\CCX\\Common\\CcxEnableSmeeUt\\CcxEnableSmeeUt.json",
+        "Iterations": ["SmeeEnableTrue", "SmeeEnableFalse"],
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c",
+        "Timeout": 15
+      }
+    ]
   },
   {
     "Component": "DF",

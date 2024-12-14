@@ -1,0 +1,39 @@
+[
+  {
+    "Iteration": "AMD_AP_MTRR_FIX64k_00000"
+  },
+  {
+    "Iteration": "AMD_AP_MTRR_FIX16k_80000"
+  },
+  {
+    "Iteration": "AMD_AP_MTRR_FIX16k_A0000"
+  },
+  {
+    "Iteration": "AMD_AP_MTRR_FIX4k_C0000"
+  },
+  {
+    "Iteration": "AMD_AP_MTRR_FIX4k_C8000"
+  },
+  {
+    "Iteration": "AMD_AP_MTRR_FIX4k_D0000"
+  },
+  {
+    "Iteration": "AMD_AP_MTRR_FIX4k_D8000"
+  },
+  {
+    "Iteration": "AMD_AP_MTRR_FIX4k_E0000"
+  },
+  {
+    "Iteration": "AMD_AP_MTRR_FIX4k_E8000"
+  },
+  {
+    "Iteration": "AMD_AP_MTRR_FIX4k_F0000"
+  },
+  {
+    "Iteration": "AMD_AP_MTRR_FIX4k_F8000"
+  },
+  {
+    "Iteration": "InvalidAddress",
+    "Description": "ApMtrrSettings MsrAddr value is set to an invalid value so its MsrData value should not be changed."
+  }
+]
