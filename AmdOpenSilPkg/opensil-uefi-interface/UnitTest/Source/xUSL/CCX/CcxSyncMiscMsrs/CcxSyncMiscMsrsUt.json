@@ -1,0 +1,6 @@
+[
+    {
+      "Description": "This Iteration will execute CcxSyncMiscMsrs branch by passing zero initialized AMD_CCX_AP_LAUNCH_GLOBAL_DATA",
+      "Iteration": "ZeroInitialized_InputStruct"
+    }
+  ]

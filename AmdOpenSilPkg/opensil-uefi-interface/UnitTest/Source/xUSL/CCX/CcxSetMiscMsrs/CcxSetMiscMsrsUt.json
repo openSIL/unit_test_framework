@@ -1,0 +1,14 @@
+[
+    {
+      "Description": "This Iteration will execute CcxSetMiscMsrsUt branch by passing zero initialized CcxInputBlock",
+      "Iteration": "ZeroInitialized"
+    }, 
+    {
+      "Description": "This Iteration will execute CcxSetMiscMsrsUt branch by passing zero initialized CcxInputBlock with EnableSvmAVIC set to true",
+      "Iteration": "ZeroInitialized_EnableSvmAVIC"
+    }, 
+    {
+      "Description": "This Iteration will execute CcxSetMiscMsrsUt branch by passing SilAborted",
+      "Iteration": "SilAborted"
+    }
+  ]

@@ -1,0 +1,10 @@
+[
+    {
+      "Description": "This Iteration will execute DfFindDeviceTypeEntryInMap by passing a Type that will match one of the AMD_FABRIC_TOPOLOGY_DIE_DEVICE_MAP's Types",
+      "Iteration": "TypeMatch"
+    }, 
+    {
+      "Description": "This Iteration will execute DfFindDeviceTypeEntryInMap by passing a Type that will not match any of the AMD_FABRIC_TOPOLOGY_DIE_DEVICE_MAP's Types",
+      "Iteration": "TypeMismatch"
+    }
+  ]

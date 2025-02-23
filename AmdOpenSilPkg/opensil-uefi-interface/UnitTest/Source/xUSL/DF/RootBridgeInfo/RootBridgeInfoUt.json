@@ -1,0 +1,34 @@
+[
+    {
+      "Description": "This Iteration will execute DfGetRootBridgeInfo and enter Socket branch",
+      "Iteration": "Socket"
+    },
+    {
+      "Description": "This Iteration will execute DfGetRootBridgeInfo and enter Die branch",
+      "Iteration": "Die"
+    },
+    {
+      "Description": "This Iteration will execute DfGetRootBridgeInfo and enter Index branch",
+      "Iteration": "Index"
+    },
+    {
+      "Description": "This Iteration will execute DfGetRootBridgeInfo and enter SystemFabricID branch",
+      "Iteration": "SystemFabricID"
+    },
+    {
+      "Description": "This Iteration will execute DfGetRootBridgeInfo and enter BusNumberLimit branch",
+      "Iteration": "BusNumberLimit"
+    },
+    {
+      "Description": "This Iteration will execute DfGetRootBridgeInfo and enter PhysicalRootBridgeNumber branch",
+      "Iteration": "PhysicalRootBridgeNumber"
+    },
+    {
+      "Description": "This Iteration will execute DfGetRootBridgeInfo and enter HasFchDevice branch",
+      "Iteration": "HasFchDevice"
+    },
+    {
+      "Description": "This Iteration will execute DfGetRootBridgeInfo and enter HasSystemMgmtUnit branch",
+      "Iteration": "HasSystemMgmtUnit"
+    }
+]

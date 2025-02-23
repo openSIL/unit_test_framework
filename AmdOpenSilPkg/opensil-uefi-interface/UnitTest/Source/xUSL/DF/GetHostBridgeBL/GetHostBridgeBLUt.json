@@ -1,0 +1,9 @@
+[   {
+    "Description": "This Iteration will execute DfXGetHostBridgeBusLimit and return default",
+    "Iteration": "NoConditionBranch"
+    },
+    {
+      "Description": "This Iteration will execute DfXGetHostBridgeBusLimit and enter condition branch",
+      "Iteration": "ConditionBranch"
+    }
+]

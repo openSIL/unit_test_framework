@@ -1,0 +1,9 @@
+[   {
+    "Description": "This Iteration will execute DfXFindComponentLocationMap and enter Count branch",
+    "Iteration": "Count"
+    },
+    {
+      "Description": "This Iteration will execute DfXFindComponentLocationMap and enter PhysIos0FabricId branch",
+      "Iteration": "PhysIos0FabricId"
+    }
+]

@@ -5,8 +5,33 @@
   {
     "Component": "FCH",
     "Description": "",
-    "CommonFiles": [
+    "CommonFiles": 
+    [
       {"Name": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\FCH\\Common\\FchCore\\FchAb\\FchAb.c"}
+    ]
+  },
+  {
+    "Component": "CCX",
+    "Description": "",
+    "CommonFiles": 
+    [
+      {"Name": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c"}
+    ]
+  },
+  {
+    "Component": "DF",
+    "Description": "",
+    "CommonFiles": 
+    [
+      {"Name": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\Common\\BaseFabricTopologyCmn.c"}
+    ]
+  },
+  {
+    "Component": "DfX",
+    "Description": "",
+    "CommonFiles": 
+    [
+      {"Name": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXFabricRegisterAcc.c"}
     ]
   }
 ]

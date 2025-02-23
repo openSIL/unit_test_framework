@@ -1,0 +1,23 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  UtMsrRegStubLib.inf
+# @brief
+#
+
+[Defines]
+  INF_VERSION                    = 0x00010006
+  BASE_NAME                      = UtMsrRegStubLib
+  FILE_GUID                      = A6D783BA-4555-45AB-A72B-6E88DBEDF762
+  MODULE_TYPE                    = BASE
+  VERSION_STRING                 = 1.0
+  LIBRARY_CLASS                  = UtMsrRegStubLib
+
+[Sources]
+  UtMsrRegStubLib.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec

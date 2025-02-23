@@ -1,0 +1,10 @@
+[
+    {
+      "Description": "This Iteration will execute SmeeEnable branch by passing True value to CcxEnableSmee",
+      "Iteration": "SmeeEnableTrue"
+    },
+    {
+      "Description": "This Iteration will not execute SmeeEnable branch by passing False value to CcxEnableSmee",
+      "Iteration": "SmeeEnableFalse"
+    }
+  ]

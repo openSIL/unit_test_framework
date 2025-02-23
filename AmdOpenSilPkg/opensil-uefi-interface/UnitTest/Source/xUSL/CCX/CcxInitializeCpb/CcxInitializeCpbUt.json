@@ -1,0 +1,10 @@
+[
+{
+    "Description": "This iteration will execute CpbEnable branch by passing 1 value to CcxInitializeCpb", 
+    "Iteration": "CpbEnableTrue"
+},
+{
+    "Description": "This iteration will execute CpbEnable branch by passing 0 value to CcxInitializeCpb", 
+    "Iteration": "CpbEnableFalse"
+}
+]

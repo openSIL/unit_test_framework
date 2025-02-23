@@ -1,0 +1,14 @@
+[
+    {
+      "Description": "Set xSimData's AmdFabricWdtCntSel",
+      "Iteration": "AmdFabricWdtCntSel"
+    }, 
+    {
+      "Description": "Enter the DfXGetNumberOfProcessorsPresent and DfGetNumberOfDiesOnSocket loops",
+      "Iteration": "HwaStsLowValue"
+    }, 
+    {
+      "Description": "Enter the DfGlblCtrlInstanceIds loop",
+      "Iteration": "CtrlInstance"
+    }
+  ]

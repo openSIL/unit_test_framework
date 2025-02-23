@@ -86,11 +86,155 @@
   {
     "Component": "CCX",
     "Description": "Profile for xUSL CCX components",
-    "Tests" : []
+    "Tests" : 
+    [
+      {
+        "Name"       : "CcxEnableSmeeUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\CCX\\CcxEnableSmee\\CcxEnableSmeeUt.json",
+        "Iterations" : ["SmeeEnableTrue", "SmeeEnableFalse"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c",
+        "Timeout"    : 15
+      },
+      {
+        "Name": "CcxSetCacWeightsUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\CCX\\CcxSetCacWeights\\CcxSetCacWeightsUt.json", 
+        "Iterations": ["ComputeTrue_sCacWeightValidSize", "ComputeFalse"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c", 
+        "Timeout": 15
+      }, 
+      {
+        "Name": "CcxInitializeCpbUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\CCX\\CcxInitializeCpb\\CcxInitializeCpbUt.json", 
+        "Iterations": ["CpbEnableTrue", "CpbEnableFalse"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c", 
+        "Timeout": 15
+      },
+      {
+        "Name": "CcxSyncMiscMsrsUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\CCX\\CcxSyncMiscMsrs\\CcxSyncMiscMsrsUt.json", 
+        "Iterations": ["ZeroInitialized_InputStruct"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c", 
+        "Timeout": 15
+      }, 
+      {
+        "Name": "CcxSetMiscMsrsUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\CCX\\CcxSetMiscMsrs\\CcxSetMiscMsrsUt.json", 
+        "Iterations": ["ZeroInitialized", "ZeroInitialized_EnableSvmAVIC", "SilAborted"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c", 
+        "Timeout": 15
+      }
+    ]
   },
   {
     "Component": "DF",
     "Description": "Profile for xUSL DF components",
-    "Tests" : []
+    "Tests" : 
+    [
+      {
+        "Name": "TypeEntryInMapUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\TypeEntryInMap\\TypeEntryInMapUt.json", 
+        "Iterations": ["TypeMatch", "TypeMismatch"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\Common\\BaseFabricTopologyCmn.c", 
+        "Timeout": 15
+      }, 
+      {
+        "Name": "RootBridgeInfoUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\RootBridgeInfo\\RootBridgeInfoUt.json", 
+        "Iterations": ["Socket", "Die", "Index", "SystemFabricID", "BusNumberLimit", "PhysicalRootBridgeNumber", "HasFchDevice", "HasSystemMgmtUnit"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\Common\\BaseFabricTopologyCmn.c", 
+        "Timeout": 15
+      },
+      {
+        "Name": "NumberOfProcessorsUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\NumberOfProcessors\\NumberOfProcessorsUt.json", 
+        "Iterations": ["Default"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXBaseFabricTopology.c", 
+        "Timeout": 15
+      }, 
+      {
+        "Name": "NumberOfSystemDiesUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\NumberOfSystemDies\\NumberOfSystemDiesUt.json", 
+        "Iterations": ["Default"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXBaseFabricTopology.c", 
+        "Timeout": 15
+      }, 
+      {
+        "Name": "NumberOfSystemRBUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\NumberOfSystemRB\\NumberOfSystemRBUt.json", 
+        "Iterations": ["Default"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXBaseFabricTopology.c", 
+        "Timeout": 15
+      }, 
+      {
+        "Name": "NumberOfRBOnSUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\NumberOfRBOnS\\NumberOfRBOnSUt.json", 
+        "Iterations": ["Default"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXBaseFabricTopology.c", 
+        "Timeout": 15
+      }, 
+      {
+        "Name": "NumberOfRBOnDUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\NumberOfRBOnD\\NumberOfRBOnDUt.json", 
+        "Iterations": ["Default"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXBaseFabricTopology.c", 
+        "Timeout": 15
+      }, 
+      {
+        "Name": "GetDieSystemOffsetUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\GetDieSystemOffset\\GetDieSystemOffsetUt.json", 
+        "Iterations": ["Default"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXBaseFabricTopology.c", 
+        "Timeout": 15
+      }, 
+      {
+        "Name": "GetDeviceMapOnDieUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\GetDeviceMapOnDie\\GetDeviceMapOnDieUt.json", 
+        "Iterations": ["Default"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXBaseFabricTopology.c", 
+        "Timeout": 15
+      }, 
+      {
+        "Name": "GetHostBridgeBBUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\GetHostBridgeBB\\GetHostBridgeBBUt.json", 
+        "Iterations": ["NoConditionBranch","ConditionBranch"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXBaseFabricTopology.c", 
+        "Timeout": 15
+      },
+      {
+        "Name": "GetPhysRootBNUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\GetPhysRootBN\\GetPhysRootBNUt.json", 
+        "Iterations": ["Default"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXBaseFabricTopology.c", 
+        "Timeout": 15
+      },
+      {
+        "Name": "FindComponentLMUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\FindComponentLM\\FindComponentLMUt.json", 
+        "Iterations": ["Count", "PhysIos0FabricId"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXBaseFabricTopology.c", 
+        "Timeout": 15
+      },
+      {
+        "Name": "FbrRegstrAccReadUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\FbrRegstrAccRead\\FbrRegstrAccReadUt.json", 
+        "Iterations": ["InstanceEnter", "InstanceSkip"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXFabricRegisterAcc.c", 
+        "Timeout": 15
+      },
+      {
+        "Name": "FbrRegstrAccWriteUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\FbrRegstrAccWrite\\FbrRegstrAccWriteUt.json", 
+        "Iterations": ["InstanceEnter", "InstanceSkip"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\DfXFabricRegisterAcc.c", 
+        "Timeout": 15
+      },
+      {
+        "Name": "PieRasInitUt", 
+        "ConfigFile": "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\PieRasInit\\PieRasInitUt.json", 
+        "Iterations": ["AmdFabricWdtCntSel", "HwaStsLowValue", "CtrlInstance"], 
+        "Target": "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\DfX\\FabricPieRasInit\\FabricPieRasInit.c", 
+        "Timeout": 15
+      }
+    ]
   }
 ]

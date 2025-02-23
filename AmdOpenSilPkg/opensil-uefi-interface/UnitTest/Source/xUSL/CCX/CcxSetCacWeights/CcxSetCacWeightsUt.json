@@ -1,0 +1,11 @@
+[
+    {
+        "Description": "This iteration will execute xUslIsComputeUnitPrimary branch by mocking true return value. It passes sCacWeight of size 23", 
+        "Iteration": "ComputeTrue_sCacWeightValidSize"
+    },
+    {
+        "Description": "This iteration will execute  xUslIsComputeUnitPrimary branch by mocking false return value", 
+        "Iteration": "ComputeFalse"
+    }
+    ]
+

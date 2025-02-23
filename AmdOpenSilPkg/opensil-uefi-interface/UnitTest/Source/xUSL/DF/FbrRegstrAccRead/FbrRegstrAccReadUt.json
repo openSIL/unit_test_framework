@@ -1,0 +1,9 @@
+[   {
+    "Description": "This Iteration will execute DfXFabricRegisterAccRead and enter Instance branch",
+    "Iteration": "InstanceEnter"
+    }, 
+    {
+    "Description": "This Iteration will execute DfXFabricRegisterAccRead and skip Instance branch",
+    "Iteration": "InstanceSkip"
+    }
+]
