@@ -1,0 +1,34 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  CcxEnableSmeeUt.inf
+# @brief
+#
+
+
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = CcxEnableSmeeUt
+  FILE_GUID      = 4bda8fa4-6020-401b-976f-ea0c3fcf7f4f
+  MODULE_TYPE    = HOST_APPLICATION
+  VERSION_STRING = 1.0
+
+[Sources]
+  CcxEnableSmeeUt.c
+  CcxEnableSmeeUt.h
+  ../../../../../../../../AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/CCX/Common/CcxMiscInit.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdCommonPkg/Test/UnitTest/AgesaModuleUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  UtBaseLib
+  UtSilServicesMockLib
+
+  UtIoFakeLib
+  UtSilInitLib
+  UtMmioFakeLib

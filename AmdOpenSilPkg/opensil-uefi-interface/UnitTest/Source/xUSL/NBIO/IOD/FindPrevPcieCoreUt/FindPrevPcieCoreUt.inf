@@ -1,0 +1,38 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  FindPrevPcieCoreUt.inf
+# @brief
+#
+
+
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = FindPrevPcieCoreUt
+  FILE_GUID      = 87ef1eb3-9f26-4dd2-9624-5d29bb9f5be3
+  MODULE_TYPE    = HOST_APPLICATION
+  VERSION_STRING = 1.0
+
+[BuildOptions]
+# Set the compiler to include the platform openSIL config file
+  MSFT:*_*_*_CC_FLAGS     =  /FI openSIL/configs/Onyx_SilCfg.h
+  GCC:*_*_*_CC_FLAGS      =  -include openSIL/configs/Onyx_SilCfg.h
+
+[Sources]
+  FindPrevPcieCoreUt.c
+  FindPrevPcieCoreUt.h
+  ../../../../../../../../AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/NBIO/IOD/NbioHidePcieCore.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdCommonPkg/Test/UnitTest/AgesaModuleUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  UtBaseLib
+  UtIoFakeLib
+  UtSilInitLib
+  UtMmioFakeLib
+  UtSilServicesMockLib

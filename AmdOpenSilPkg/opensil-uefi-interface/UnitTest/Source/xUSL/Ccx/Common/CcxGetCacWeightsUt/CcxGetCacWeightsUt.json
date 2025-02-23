@@ -1,0 +1,11 @@
+[
+    {
+      "Description": "Excutes  CcxGetCacWeights() and successfully returns SilPass",
+      "Iteration": "SilPass"
+    },
+    {
+      "Description": "Excutes  CcxGetCacWeights() and successfully returns SilAborted",
+      "Iteration": "SilAborted"
+  }
+]
+  

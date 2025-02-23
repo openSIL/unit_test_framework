@@ -1,0 +1,10 @@
+[
+    {
+      "Description": "Excutes  CcxSetCacWeights() when xUslIsComputeUnitPrimary() return true",
+      "Iteration": "xUslIsComputeUnitPrimaryTrue"
+    },
+    {
+      "Description": "Excutes  CcxSetCacWeights() when xUslIsComputeUnitPrimary() return false",
+      "Iteration": "xUslIsComputeUnitPrimaryFalse"
+    }
+]

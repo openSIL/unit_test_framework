@@ -52,7 +52,65 @@
   {
     "Component": "NBIO",
     "Description": "Profile for xUSL NBIO components",
-    "Tests" : []
+    "Tests" : [
+      {
+        "Name"       : "FindPcieCoreDescUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\NBIO\\IOD\\FindPcieCoreDescUt\\FindPcieCoreDescUt.json",
+        "Iterations" : ["ValidFindPcieCoreDesc", "HideInfoThisPcieCoreIsNULL", "HideInfoNextPcieCoreIsNULL"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\NBIO\\IOD\\NbioHidePcieCore.c",
+        "Timeout"    : 15
+      },      
+      {
+        "Name"       : "FindLastPciePortOnPrevPcieCUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\NBIO\\IOD\\FindLastPciePortOnPrevPcieCUt\\FindLastPciePortOnPrevPcieCUt.json",
+        "Iterations" : ["ValidFindLastPciePort"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\NBIO\\IOD\\NbioHidePcieCore.c",
+        "Timeout"    : 15
+      },
+      {
+        "Name"       : "FindLastPciePortOfThisPcieCUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\NBIO\\IOD\\FindLastPciePortOfThisPcieCUt\\FindLastPciePortOfThisPcieCUt.json",
+        "Iterations" : ["FindLastPciePortOfThisPcieCore"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\NBIO\\IOD\\NbioHidePcieCore.c",
+        "Timeout"    : 15
+      },
+      
+      {
+        "Name"       : "PcieConfigAttachDescriptorsUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\NBIO\\IOD\\PcieConfigAttachDescriptorsUt\\PcieConfigAttachDescriptorsUt.json",
+        "Iterations" : ["ValidDescriptorRemoved"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\NBIO\\IOD\\NbioHidePcieCore.c",
+        "Timeout"    : 15
+      },      {
+        "Name"       : "FindPrevPcieCoreUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\NBIO\\IOD\\FindPrevPcieCoreUt\\FindPrevPcieCoreUt.json",
+        "Iterations" : ["InvalidInstanceID", "FindPrevSiliconAndLastWrapper", "TraverseMultipleSilicons", "PrevSiliconNotFound"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\NBIO\\IOD\\NbioHidePcieCore.c",
+        "Timeout"    : 15
+      },      {
+        "Name"       : "IsSteppingAxUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\NBIO\\IOD\\IsSteppingAxUt\\IsSteppingAxUt.json",
+        "Iterations" : ["SilPass", "SilInvalidParameter"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\NBIO\\IOD\\NbioBaseInitGenoa.c",
+        "Timeout"    : 15
+      },
+      {
+        "Name"       : "PcieEnumerateAndHarvestWrUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\NBIO\\IOD\\PcieEnumerateAndHarvestWrUt\\PcieEnumerateAndHarvestWrUt.json",
+        "Iterations" : ["TestAXStepping", "TestBXStepping"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\NBIO\\IOD\\NbioBaseInitGenoa.c",
+        "Timeout"    : 15
+      },
+      
+      {
+        "Name"       : "InitNbioConfigDataUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\NBIO\\IOD\\InitNbioConfigDataUt\\InitNbioConfigDataUt.json",
+        "Iterations" : ["InitDataSuccess"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\NBIO\\IOD\\NbioData.c",
+        "Timeout"    : 15
+      }
+
+    ]
   },
   {
     "Component": "GFX",
@@ -86,11 +144,56 @@
   {
     "Component": "CCX",
     "Description": "Profile for xUSL CCX components",
-    "Tests" : []
+    "Tests" : [
+      {
+        "Name"       : "CcxEnableSmeeUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\Ccx\\Common\\CcxEnableSmeeUt\\CcxEnableSmeeUt.json",
+        "Iterations" : ["EnableSmeeTrue", "EnableSmeeFalse"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c",
+        "Timeout"    : 15
+      },
+      {
+        "Name"       : "CcxSetCacWeightsUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\Ccx\\Common\\CcxSetCacWeightsUt\\CcxSetCacWeightsUt.json",
+        "Iterations" : ["xUslIsComputeUnitPrimaryTrue", "xUslIsComputeUnitPrimaryFalse"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c",
+        "Timeout"    : 15
+      },
+      {
+        "Name"       : "CcxGetCacWeightsUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\Ccx\\Common\\CcxGetCacWeightsUt\\CcxGetCacWeightsUt.json",
+        "Iterations" : ["SilPass", "SilAborted"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c",
+        "Timeout"    : 15
+      }
+    ]
   },
   {
     "Component": "DF",
     "Description": "Profile for xUSL DF components",
-    "Tests" : []
+    "Tests" : [
+      {
+        "Name"       : "DfGetProcessorInfoUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\Df\\Common\\DfGetProcessorInfoUt\\DfGetProcessorInfoUt.json",
+        "Iterations" : ["ValidateProcessorInfo", "InvalidSocketIndexParameter"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\Common\\BaseFabricTopologyCmn.c",    
+        "Timeout"    : 15
+      },
+      {
+        "Name"       : "DfGetDieInfoUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\Df\\Common\\DfGetDieInfoUt\\DfGetDieInfoUt.json",
+        "Iterations" : ["ValidateDieInfo", "InvalidSocketParameter", "InvalidDieParameter"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\Common\\BaseFabricTopologyCmn.c",    
+        "Timeout"    : 15
+      },
+      {
+        "Name"       : "DfGetSystemInfoUt",
+        "ConfigFile" : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\Df\\Common\\DfGetSystemInfoUt\\DfGetSystemInfoUt.json",
+        "Iterations" : ["SilPass"],
+        "Target"     : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\Common\\BaseFabricTopologyCmn.c",    
+        "Timeout"    : 15
+      }
+    ]
   }
 ]
+

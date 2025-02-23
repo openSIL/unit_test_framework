@@ -1,0 +1,38 @@
+# Copyright (C) 2024 Advanced Micro Devices, Inc. All rights reserved.
+#
+# @file  DfGetSystemInfoUt.inf
+# @brief
+#
+
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = DfGetSystemInfoUt
+  FILE_GUID      = 3465c34a-541c-4057-a742-d61465ff8176
+  MODULE_TYPE    = HOST_APPLICATION
+  VERSION_STRING = 1.0
+
+[BuildOptions]
+# Set the compiler to include the platform openSIL config file
+  MSFT:*_*_*_CC_FLAGS     =  /FI openSIL/configs/Onyx_SilCfg.h /Dstatic=
+  GCC:*_*_*_CC_FLAGS      =  -include openSIL/configs/Onyx_SilCfg.h -Dstatic=
+
+[Sources]
+  DfGetSystemInfoUt.c
+  DfGetSystemInfoUt.h
+  ../../../../../../../../AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/DF/Common/BaseFabricTopologyCmn.c
+  
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdCommonPkg/Test/UnitTest/AgesaModuleUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  UtBaseLib
+  UtIoFakeLib
+  UtSilInitLib
+  UtSilServicesMockLib
+  UtPciStubLib
+ 

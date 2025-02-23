@@ -1,0 +1,11 @@
+[
+    {
+      "Description": "Excutes function CcxEnableSmee() successfully with Ture parameter",
+      "Iteration": "EnableSmeeTrue"
+    },
+    {
+      "Description": "Excutes function CcxEnableSmee() successfully with False parameter",
+      "Iteration": "EnableSmeeFalse"
+    }
+]
+  

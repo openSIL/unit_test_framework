@@ -1,0 +1,35 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  CcxSetCacWeightsUt.inf
+# @brief
+#
+
+
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = CcxSetCacWeightsUt
+  FILE_GUID      = 509345be-6d5d-4914-9f2a-25dc53d6eccd
+  MODULE_TYPE    = HOST_APPLICATION
+  VERSION_STRING = 1.0
+
+[Sources]
+  CcxSetCacWeightsUt.c
+  CcxSetCacWeightsUt.h
+  ../../../../../../../../AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/CCX/Common/CcxMiscInit.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdCommonPkg/Test/UnitTest/AgesaModuleUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  UtBaseLib
+  UtSilServicesMockLib
+  UtCpuOpsMockLib
+
+  UtIoFakeLib
+  UtSilInitLib
+  UtMmioFakeLib

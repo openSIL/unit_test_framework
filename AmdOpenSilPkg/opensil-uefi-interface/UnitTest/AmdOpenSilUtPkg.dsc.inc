@@ -23,6 +23,7 @@
   UtxSIMMockLib|$(OPENSIL_UTPATH)/Mocks/UtxSIMMockLib/UtxSIMMockLib.inf
   UtSilServicesMockLib|$(OPENSIL_UTPATH)/Mocks/UtSilServicesMockLib/UtSilServicesMockLib.inf
   UtSmnAccessStubLib|$(OPENSIL_UTPATH)/Stubs/UtSmnAccessStubLib/UtSmnAccessStubLib.inf
+  UtCpuOpsMockLib|$(OPENSIL_UTPATH)/Mocks/UtCpuOpsMockLib/UtCpuOpsMockLib.inf
 
 [BuildOptions]
   GCC:*_*_*_CC_FLAGS     = -D UNIT_TEST_RUN

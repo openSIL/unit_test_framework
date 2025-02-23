@@ -307,3 +307,34 @@ MockSilGetCommon2RevXferTableOnce (
   will_return (SilGetCommon2RevXferTable, ExpectedXferTable);
   will_return (SilGetCommon2RevXferTable, ExpectedSilStatus);
 }
+
+/**
+ * MockSilGetCommon2RevXferTableManyTimes
+ *
+ * @brief Arm expected return value for a single call to SilGetCommon2RevXferTable
+ *
+ * @param ExpectedXferTable  The expected return value from SilGetCommon2RevXferTable.
+ *
+ *                        - In a passing case, this parameter should be a pointer to a buffer for the transfer table.
+ *                        - In a failing case, this parameter should be NULL.
+ *
+ * @param ExpectedSilStatus  The expected return Status from SilGetCommon2RevXferTable.
+ *
+ *                        - In a passing case, this parameter should SilPass.
+ *                        - In a failing case, this parameter should an error Status.
+ */
+void
+MockSilGetCommon2RevXferTableManyTimes (
+  void            *ExpectedXferTable,
+  SIL_STATUS      ExpectedSilStatus,
+  uint32_t        Count 
+  )
+{
+  for(uint32_t i = 0; i < Count; i++)
+  {
+    // Verify IpId is within the range defined by SIL_DATA_BLOCK_ID
+    expect_in_range (SilGetCommon2RevXferTable, IpId, (uint32_t)SilId_SocCommon, ((uint32_t)SilId_ListEnd - 1));
+    will_return (SilGetCommon2RevXferTable, ExpectedXferTable);
+    will_return (SilGetCommon2RevXferTable, ExpectedSilStatus);
+  }
+}

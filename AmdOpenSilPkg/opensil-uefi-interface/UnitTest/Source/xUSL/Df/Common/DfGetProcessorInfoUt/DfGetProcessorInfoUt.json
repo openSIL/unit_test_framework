@@ -1,0 +1,10 @@
+[
+  {
+    "Description": " Validate Fabric Processor info.",
+    "Iteration"  : "ValidateProcessorInfo"
+  },
+  {
+    "Description": " Invalid SocketInde in Fabric Processor info.",
+    "Iteration"  : "InvalidSocketIndexParameter"
+  }
+]

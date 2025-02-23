@@ -1,0 +1,38 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  PcieEnumerateAndHarvestWrUt.inf
+# @brief
+#
+
+
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = PcieEnumerateAndHarvestWrUt
+  FILE_GUID      = 024d5c27-8496-4501-aaff-fa77da685525
+  MODULE_TYPE    = HOST_APPLICATION
+  VERSION_STRING = 1.0
+
+[BuildOptions]
+# Set the compiler to include the platform openSIL config file
+  MSFT:*_*_*_CC_FLAGS     =  /FI openSIL/configs/Onyx_SilCfg.h
+  GCC:*_*_*_CC_FLAGS      =  -include openSIL/configs/Onyx_SilCfg.h
+
+[Sources]
+  PcieEnumerateAndHarvestWrUt.c
+  PcieEnumerateAndHarvestWrUt.h
+  ../../../../../../../../AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/NBIO/IOD/NbioBaseInitGenoa.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdCommonPkg/Test/UnitTest/AgesaModuleUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  UtBaseLib
+  UtIoFakeLib
+  UtSilInitLib
+  UtMmioFakeLib
+  UtSilServicesMockLib

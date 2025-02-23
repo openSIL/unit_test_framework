@@ -1,0 +1,14 @@
+[
+  {
+    "Description": " Validate Fabric Processor info.",
+    "Iteration"  : "ValidateDieInfo"
+  },
+  {
+    "Description": " Invalid Socket parameter in Fabric Processor info.",
+    "Iteration"  : "InvalidSocketParameter"
+  },
+  {
+    "Description": " Invalid Die parameter in Fabric Processor info.",
+    "Iteration"  : "InvalidDieParameter"
+  }
+]
