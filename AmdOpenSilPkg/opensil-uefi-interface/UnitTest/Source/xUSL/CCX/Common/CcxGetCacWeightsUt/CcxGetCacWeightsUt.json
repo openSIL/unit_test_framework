@@ -1,0 +1,10 @@
+[
+  {
+    "Description": "This Iteration will test an empty transfer table being processed.",
+    "Iteration": "GetCacWeightsAborted"
+  },
+  {
+    "Description": "This Iteration will test the rest of the function knowing the transfer table is in working condition.",
+    "Iteration": "GetCacWeightsPass"
+  }
+]

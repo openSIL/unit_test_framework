@@ -1,0 +1,10 @@
+[
+  {
+    "Description": "This Iteration tests the case of root bridge location is found.",
+    "Iteration": "RootBridgeIsFound"
+  },
+  {
+    "Description": "This Iteration tests the case of root bridge location is not found.",
+    "Iteration": "RootBridgeIsNotFound"
+  }
+]

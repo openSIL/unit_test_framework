@@ -1,0 +1,10 @@
+[
+  {
+    "Description": "This Iteration will execute SmeeEnable branch from CcxEnableSmee()",
+    "Iteration": "SmeeEnableTest"
+  },
+  {
+    "Description": "This Iteration will pass false and not enable SMEE",
+    "Iteration": "SmeeEnableFalse"
+  }
+]

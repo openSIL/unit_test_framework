@@ -1,0 +1,42 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  InitializeResourceManagerDfXTp3Ut.inf
+# @brief
+#
+
+
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = InitializeResourceManagerDfXTp3Ut
+  FILE_GUID      = be3ce56f-b490-4ccd-9abf-08303fe3fcd3
+  MODULE_TYPE    = HOST_APPLICATION
+  VERSION_STRING = 1.0
+
+[BuildOptions]
+# Set the compiler to include the platform openSIL config file
+  MSFT:*_*_*_CC_FLAGS     =  /FI openSIL/configs/Onyx_SilCfg.h /Dstatic=
+  GCC:*_*_*_CC_FLAGS      =  -include openSIL/configs/Onyx_SilCfg.h -Dstatic=
+
+[Sources]
+  InitializeResourceManagerDfXTp3Ut.h
+  InitializeResourceManagerDfXTp3Ut.c
+  ../../../../../../../../AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/RcMgr/DfX/FabricRcInitDfX.h
+  ../../../../../../../../AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/RcMgr/DfX/FabricRcInitDfX.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdCommonPkg/Test/UnitTest/AgesaModuleUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  UtBaseLib
+  UtIoStubLib
+  UtPciStubLib
+  UtMmioStubLib
+  UtxSIMMockLib
+  UtSmnAccessStubLib
+  UtSilInitLib
+  UtSilServicesMockLib

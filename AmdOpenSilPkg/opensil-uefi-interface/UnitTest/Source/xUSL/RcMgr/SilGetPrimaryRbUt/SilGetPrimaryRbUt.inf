@@ -1,0 +1,42 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  SilGetPrimaryRbUt.inf
+# @brief
+#
+
+
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = SilGetPrimaryRbUt
+  FILE_GUID      = e3c9f027-2971-4c4a-ae63-69a939bf95d1
+  MODULE_TYPE    = HOST_APPLICATION
+  VERSION_STRING = 1.0
+
+[BuildOptions]
+# Set the compiler to include the platform openSIL config file
+  MSFT:*_*_*_CC_FLAGS     =  /FI openSIL/configs/Onyx_SilCfg.h /Dstatic=
+  GCC:*_*_*_CC_FLAGS      =  -include openSIL/configs/Onyx_SilCfg.h -Dstatic=
+
+[Sources]
+  SilGetPrimaryRbUt.h
+  SilGetPrimaryRbUt.c
+  ../../../../../../../AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/RcMgr/FabricResourceManager.h
+  ../../../../../../../AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/RcMgr/FabricRcInit.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdCommonPkg/Test/UnitTest/AgesaModuleUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  UtBaseLib
+  UtIoStubLib
+  UtPciStubLib
+  UtMmioStubLib
+  UtxSIMMockLib
+  UtSmnAccessStubLib
+  UtSilInitLib
+  UtSilServicesMockLib

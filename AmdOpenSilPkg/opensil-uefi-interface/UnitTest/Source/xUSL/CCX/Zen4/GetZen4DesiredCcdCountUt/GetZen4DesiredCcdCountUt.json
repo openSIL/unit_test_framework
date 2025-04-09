@@ -1,0 +1,58 @@
+[
+  {
+    "Description": "This Iteration tests the CCD_MODE_11_CCDS case.",
+    "Iteration": "Case_CCD_MODE_11_CCDS"
+  },
+  {
+    "Description": "This Iteration tests the CCD_MODE_10_CCDS case.",
+    "Iteration": "Case_CCD_MODE_10_CCDS"
+  },
+  {
+    "Description": "This Iteration tests the CCD_MODE_9_CCDS case.",
+    "Iteration": "Case_CCD_MODE_9_CCDS"
+  },
+  {
+    "Description": "This Iteration tests the CCD_MODE_8_CCDS case.",
+    "Iteration": "Case_CCD_MODE_8_CCDS"
+  },
+  {
+    "Description": "This Iteration tests the CCD_MODE_7_CCDS case.",
+    "Iteration": "Case_CCD_MODE_7_CCDS"
+  },
+  {
+    "Description": "This Iteration tests the CCD_MODE_6_CCDS case.",
+    "Iteration": "Case_CCD_MODE_6_CCDS"
+  },
+  {
+    "Description": "This Iteration tests the CCD_MODE_5_CCDS case.",
+    "Iteration": "Case_CCD_MODE_5_CCDS"
+  },
+  {
+    "Description": "This Iteration tests the CCD_MODE_4_CCDS case.",
+    "Iteration": "Case_CCD_MODE_4_CCDS"
+  },
+  {
+    "Description": "This Iteration tests the CCD_MODE_3_CCDS case.",
+    "Iteration": "Case_CCD_MODE_3_CCDS"
+  },
+  {
+    "Description": "This Iteration tests the CCD_MODE_2_CCDS case.",
+    "Iteration": "Case_CCD_MODE_2_CCDS"
+  },
+  {
+    "Description": "This Iteration tests the true case of CCD_MODE_1_CCD.",
+    "Iteration": "TrueCase_CCD_MODE_1_CCD"
+  },
+  {
+    "Description": "This Iteration tests the false case of CCD_MODE_1_CCD.",
+    "Iteration": "FalseCase_CCD_MODE_1_CCD"
+  },  
+  {
+    "Description": "This Iteration tests the CcdMode != CCD_MODE_AUTO is true.",
+    "Iteration": "Case_Default_True"
+  },
+  {
+    "Description": "This Iteration tests the CcdMode != CCD_MODE_AUTO is false.",
+    "Iteration": "Case_Default_False"
+  }
+]

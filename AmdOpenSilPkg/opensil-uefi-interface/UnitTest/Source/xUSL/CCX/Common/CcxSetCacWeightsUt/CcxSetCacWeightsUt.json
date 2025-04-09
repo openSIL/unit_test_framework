@@ -1,0 +1,10 @@
+[
+  {
+    "Description": "This Iteration will take in uint64_t array of size 15.",
+    "Iteration": "CacWeightsSize15"
+  },
+  {
+    "Description": "This Iteration will take in uint64_t array of size MAX_CAC_WEIGHT_NUM.",
+    "Iteration": "CacWeightsSize23"
+  }
+]

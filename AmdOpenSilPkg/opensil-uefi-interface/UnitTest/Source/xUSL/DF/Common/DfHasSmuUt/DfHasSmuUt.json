@@ -1,0 +1,10 @@
+[
+  {
+    "Description": "Tests the case of Smu being found.",
+    "Iteration": "SmuIsFound"
+  },
+  {
+    "Description": "Tests the case of Smu is not found.",
+    "Iteration": "SmuIsNotFound"
+  }
+]

@@ -66,7 +66,50 @@
   {
     "Component": "RcMgr",
     "Description": "Profile for xUSL RcMgr components",
-    "Tests" : []
+    "Tests" : [
+      {
+        "Name"        : "SilGetPrimaryRbUt",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\RcMgr\\SilGetPrimaryRbUt\\SilGetPrimaryRbUt.json",
+        "Iterations"  : ["RootBridgeIsFound", "RootBridgeIsNotFound"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\RcMgr\\FabricRcInit.c",
+        "Timeout"     : 15
+      },
+      {
+        "Name"        : "InitializeRcMgrApiUt",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\RcMgr\\InitializeRcMgrApiUt\\InitializeRcMgrApiUt.json",
+        "Iterations"  : ["Ip2ipApiSuccess"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\RcMgr\\FabricRcInit.c",
+        "Timeout"     : 15
+      },
+      {
+        "Name"        : "DfXRcMgrSetInputBlkUt",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\RcMgr\\DfX\\DfXRcMgrSetInputBlkUt\\DfXRcMgrSetInputBlkUt.json",
+        "Iterations"  : ["SilPass"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\RcMgr\\DfX\\FabricRcInitDfX.c",
+        "Timeout"     : 15
+      },     
+      {
+        "Name"        : "InitializeResourceManagerDfXTp3Ut",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\RcMgr\\DfX\\InitializeResourceManagerDfXTp3Ut\\InitializeResourceManagerDfXTp3Ut.json",
+        "Iterations"  : ["SilPass"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\RcMgr\\DfX\\FabricRcInitDfX.c",
+        "Timeout"     : 15
+      },
+      {
+        "Name"        : "InitializeResourceManagerDfXTp2Ut",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\RcMgr\\DfX\\InitializeResourceManagerDfXTp2Ut\\InitializeResourceManagerDfXTp2Ut.json",
+        "Iterations"  : ["SilPass"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\RcMgr\\DfX\\FabricRcInitDfX.c",
+        "Timeout"     : 15
+      },
+      {
+        "Name"        : "InitializeResourceManagerDfXTp1Ut",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\RcMgr\\DfX\\InitializeResourceManagerDfXTp1Ut\\InitializeResourceManagerDfXTp1Ut.json",
+        "Iterations"  : ["SilPassNoBranch"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\RcMgr\\DfX\\FabricRcInitDfX.c",
+        "Timeout"     : 15
+      }  
+    ]
   },
   {
     "Component": "MEM",
@@ -86,11 +129,55 @@
   {
     "Component": "CCX",
     "Description": "Profile for xUSL CCX components",
-    "Tests" : []
+    "Tests" : [
+      {
+        "Name"        : "CcxEnableSmeeUt",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\CCX\\Common\\CcxEnableSmeeUt\\CcxEnableSmeeUt.json",
+        "Iterations"  : ["SmeeEnableTest", "SmeeEnableFalse"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c",
+        "Timeout"     : 15
+      },
+      {
+        "Name"        : "CcxSetCacWeightsUt",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\CCX\\Common\\CcxSetCacWeightsUt\\CcxSetCacWeightsUt.json",
+        "Iterations"  : ["CacWeightsSize15", "CacWeightsSize23"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c",
+        "Timeout"     : 15
+      },
+      {
+        "Name"        : "CcxGetCacWeightsUt",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\CCX\\Common\\CcxGetCacWeightsUt\\CcxGetCacWeightsUt.json",
+        "Iterations"  : ["GetCacWeightsAborted", "GetCacWeightsPass"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Common\\CcxMiscInit.c",
+        "Timeout"     : 15
+      },
+      {
+        "Name"        : "GetZen4DesiredCcdCountUt",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\CCX\\Zen4\\GetZen4DesiredCcdCountUt\\GetZen4DesiredCcdCountUt.json",
+        "Iterations"  : ["Case_CCD_MODE_11_CCDS", "Case_CCD_MODE_10_CCDS", "Case_CCD_MODE_9_CCDS", "Case_CCD_MODE_8_CCDS", "Case_CCD_MODE_7_CCDS", "Case_CCD_MODE_6_CCDS", "Case_CCD_MODE_5_CCDS", "Case_CCD_MODE_4_CCDS", "Case_CCD_MODE_3_CCDS", "Case_CCD_MODE_2_CCDS", "TrueCase_CCD_MODE_1_CCD", "FalseCase_CCD_MODE_1_CCD", "Case_Default_True", "Case_Default_False"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\CCX\\Zen4\\Zen4DownCoreInit.c",
+        "Timeout"     : 15
+      }
+    ]
   },
   {
     "Component": "DF",
     "Description": "Profile for xUSL DF components",
-    "Tests" : []
-  }
+    "Tests" : [
+      {
+        "Name"        : "DfHasFchUt",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\Common\\DfHasFchUt\\DfHasFchUt.json",
+        "Iterations"  : ["FchIsFound", "FchIsNotFound"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\Common\\BaseFabricTopologyCmn.c",
+        "Timeout"     : 15
+      },
+      {
+        "Name"        : "DfHasSmuUt",
+        "ConfigFile"  : "AmdOpenSilPkg\\opensil-uefi-interface\\UnitTest\\Source\\xUSL\\DF\\Common\\DfHasSmuUt\\DfHasSmuUt.json",
+        "Iterations"  : ["SmuIsFound", "SmuIsNotFound"],
+        "Target"      : "AmdOpenSilPkg\\opensil-uefi-interface\\OpenSIL\\xUSL\\DF\\Common\\BaseFabricTopologyCmn.c",
+        "Timeout"     : 15
+      }
+    ]
+  } 
 ]
