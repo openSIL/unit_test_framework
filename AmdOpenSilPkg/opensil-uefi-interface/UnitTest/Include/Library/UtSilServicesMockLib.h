@@ -13,6 +13,13 @@ MockSilGetCommon2RevXferTableOnce (
   SIL_STATUS      ExpectedSilStatus
   );
 
+void 
+MockSilGetCommon2RevXferTableManyTimes(
+  void *ExpectedXferTable,
+  SIL_STATUS ExpectedSilStatus,
+  uint32_t Count
+);
+
 void
 MockSilInitCommon2RevXferTableOnce (
   void            *ExpectedXferTable,
@@ -72,3 +79,4 @@ SilGetCommon2RevXferTable (
   SIL_DATA_BLOCK_ID   IpId,
   void                **XferTable
   );
+  

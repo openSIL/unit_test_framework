@@ -1,0 +1,14 @@
+[
+  {
+    "Description": "When PortPointer->AncData.Ovrd == 0",
+    "Iteration": "NoOvrdPresent"
+  },
+  {
+    "Description": "When Ovrd of type ANC_PHY_OVRD is passed",
+    "Iteration": "PhyOvrdPresent"
+  },
+  {
+    "Description": "When Ovrd of type ANC_SPEED_OVRD is passed",
+    "Iteration": "SpdOvrdPresent"
+  }
+]

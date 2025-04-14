@@ -61,9 +61,9 @@ of C and C header files, including the code to be put under test, with an EDKII
 .inf file.
 
 Unit tests should be structured in folders like so:
-UnitTest/Source/(Component Name)/(Sub-component name)/TestThisFeatureUt.c.
+UnitTest/Source/(Component Name)/(Sub-component name)/ThisFeatureUt.c.
 
-The recommended naming convention is: **Test**\ ThisFeature\ **Ut**.c.
+The recommended naming convention is: ThisFeature\ **Ut**.c.
 
 ''''''''''''''''''''''''''''''
 Adding a new UTM on Genoa POC:
@@ -73,11 +73,11 @@ Adding a new UTM on Genoa POC:
 
 2. (Optional) Duplicate UnitTest/Source/Examples/HelloWorldUt as a template for your new UTM
 
-3. Add your UTM .inf file to *workspace*\Platform\AmdCommonPkg\Test\UnitTest\AgesaModuleUtPkgGn.dsc
+3. Add your UTM .inf file to *workspace*/Platform/AmdCommonPkg/Test/UnitTest/AgesaModuleUtPkgGn.dsc
 
-4. Run 'dbuild.cmd ut UnitTest\AgesaModuleUtPkgGn.dsc'
+4. Run 'dbuild.cmd ut UnitTest/AgesaModuleUtPkgGn.dsc'
 
-5. Upon successful build, the unit test executables will be located under Build\AmdCommonPkg\HostTest\NOOPT_VS2019\IA32
+5. Upon successful build, the unit test executables will be located under Build/AmdCommonPkg/HostTest/NOOPT_VS2019/IA32
 
 '''''''''''''''''''''''
 Executing a single test
@@ -456,9 +456,9 @@ for building the Genoa openSIL POC. You will require Python3.x and git installed
 
   - git checkout genoa_poc
 
-  - Copy contents of *workspace*\unit_test_framework\AmdOpenSilPkg to *workspace*\AmdOpenSilPkg
+  - Copy contents of *workspace*/unit_test_framework/AmdOpenSilPkg to *workspace*/AmdOpenSilPkg
 
-  - Copy contents of *workspace*\unit_test_framework\Platform to *workspace*\Platform
+  - Copy contents of *workspace*/unit_test_framework/Platform to *workspace*/Platform
 
   - cd .. (i.e., cd back out into *workspace*)
 

@@ -1,0 +1,14 @@
+[
+  {
+    "Iteration": "Default",
+    "Description": "Positive Flow"
+  },
+  {
+    "Iteration": "NoXferTable",
+    "Description": "Early return because the Xfer table is not made available through mocking"
+  },
+  {
+    "Iteration": "NoIp2IpApi",
+    "Description": "Early return because the Ip2IpApi is not made available through mocking"
+  }
+]

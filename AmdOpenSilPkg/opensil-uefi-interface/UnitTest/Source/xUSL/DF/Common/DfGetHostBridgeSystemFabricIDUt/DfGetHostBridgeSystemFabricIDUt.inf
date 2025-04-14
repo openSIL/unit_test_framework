@@ -1,0 +1,36 @@
+# Copyright (C) 2021 - 2024 Advanced Micro Devices, Inc. All rights reserved.
+# SPDX-License-Identifier: MIT
+#
+# @file  DfGetHostBridgeSystemFabricIDUt.inf
+# @brief
+#
+
+
+[Defines]
+  INF_VERSION    = 0x00010005
+  BASE_NAME      = DfGetHostBridgeSystemFabricIDUt
+  FILE_GUID      = 700441e6-1b0b-4736-ad91-44ffd77783f0
+  MODULE_TYPE    = HOST_APPLICATION
+  VERSION_STRING = 1.0
+
+[Sources]
+  DfGetHostBridgeSystemFabricIDUt.c
+  ../../../../../../../../../workspace/AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/DF/Common/BaseFabricTopologyCmn.h
+  ../../../../../../../../../workspace/AmdOpenSilPkg/opensil-uefi-interface/OpenSIL/xUSL/DF/Common/BaseFabricTopologyCmn.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UnitTestFrameworkPkg/UnitTestFrameworkPkg.dec
+  AmdCommonPkg/Test/UnitTest/AgesaModuleUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/UnitTest/AmdOpenSilUtPkg.dec
+  AmdOpenSilPkg/opensil-uefi-interface/AmdOpenSilPkg.dec
+
+[LibraryClasses]
+  UtBaseLib
+  UtIoStubLib
+  UtPciStubLib
+  UtMmioStubLib
+  UtxSIMMockLib
+  UtSmnAccessStubLib
+  UtSilInitLib
+  UtSilServicesMockLib
